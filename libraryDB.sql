@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: library
 -- ------------------------------------------------------
--- Server version	8.0.11
+-- Server version	8.0.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `book_catalog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book_catalog` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_id` int NOT NULL AUTO_INCREMENT,
   `author` varchar(200) NOT NULL,
-  `book_title` varchar(200) NOT NULL,
-  `type` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `title` varchar(200) NOT NULL,
+  `type` varchar(200) NOT NULL,
+  PRIMARY KEY (`book_id`),
   FULLTEXT KEY `author` (`author`),
   FULLTEXT KEY `author_2` (`author`),
   FULLTEXT KEY `author_3` (`author`),
@@ -53,13 +53,13 @@ DROP TABLE IF EXISTS `user_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_data` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(60) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `user_access` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `login` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `admin_access` tinyint NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `user_data` (
 
 LOCK TABLES `user_data` WRITE;
 /*!40000 ALTER TABLE `user_data` DISABLE KEYS */;
-INSERT INTO `user_data` VALUES (1,'Admin','Admin@gmail.com','698D51A19D8A121CE581499D7B701668',1),(2,'User','User@gmail.com','084E0343A0486FF05530DF6C705C8BB4',0),(3,'User1','User1@gmail.com','084E0343A0486FF05530DF6C705C8BB4',0),(4,'Test','projecttest500@gmail.com','084E0343A0486FF05530DF6C705C8BB4',0);
+INSERT INTO `user_data` VALUES (5,'admin','admin@admin.com','35EEB2894ED1FC4D4B36CF687E62462C',1),(6,'user','user@user.com','80BD5BAAEFE3DD7FDB7016C24C131570',0);
 /*!40000 ALTER TABLE `user_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-08 20:01:55
+-- Dump completed on 2021-01-14 16:10:17
